@@ -33,7 +33,7 @@ python 14pro.py
 全流程自动下单。
 
 ### 相关参考
-[Apple Store iPhone预约助手](https://github.com/hteen/apple-store-helper)
+[Apple Store iPhone预约助手](https://github.com/hteen/apple-store-helper) @hteen
 
 ### 如果觉得有用，打赏一颗糖果，谢谢！
 
