@@ -12,7 +12,7 @@
 
 
 ### 获取零售店代码和机型代码
-在 `apple` 购买选购界面，`chrome` 浏览器右键检查，切换到 `network` 选项，按照提示勾选 `pro，promax`，存储大小等。找到 `fulfillment-messages`，切换到 `payload` 选项, 找到 `store` 和 `parts.0` ，对应替换脚本中的 `storeCode` 和 `model`。
+在 `apple` 购买选购界面，`chrome` 浏览器右键检查，切换到 `network` 选项。在选购节界面按照提示勾选 `pro，promax`，存储大小等。在 `network` 下找到 `fulfillment-messages`开头的链接，切换到 `payload` 选项, 找到 `store` 和 `parts.0` ，对应替换脚本中的 `storeCode` 和 `model`。
 
 ![chrome_inspect.png](https://s2.loli.net/2022/09/18/d7rwEemWx4IRAVO.png)
 
