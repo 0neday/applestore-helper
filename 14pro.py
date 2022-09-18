@@ -8,8 +8,8 @@ from requests.structures import CaseInsensitiveDict
 # http get
 url = 'https://www.apple.com.cn/shop/fulfillment-messages'
 storeCode = 'R532'
-#model = 'MQ1C3CH/A'
-model = 'MQ0M3CH/A'
+model = 'MQ1C3CH/A'
+#model = 'MQ0M3CH/A'
 headers = CaseInsensitiveDict()
 headers["Accept"] = "application/json"
 headers["user-agent"] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36'
