@@ -32,8 +32,11 @@ python 14pro.py
 ### 下一步实现
 全流程自动下单。
 
-### 相关参考
+### Credits, thanks for help
 [Apple Store iPhone预约助手](https://github.com/hteen/apple-store-helper) @hteen
+
+### license MIT
+
 
 ### 如果觉得有用，打赏一颗糖果，谢谢！
 
