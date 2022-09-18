@@ -24,19 +24,26 @@ flag = 1
 
 # get status
 async def get_status():
-    getStock = json.loads(requests.get(url + '?searchNearby=true&pl=true&mts.0=regular&mts.1=compact&parts.0=' + model + '&store=' + storeCode, headers=headers).content)
-    storeList = getStock['body']['content']['pickupMessage']['stores']
-    for x in range(len(storeList)):
-        status = storeList[x]['partsAvailability'][model]['pickupDisplay']
-        if status == 'available':
-#            global flag
-#            flag = 0
-            product = storeList[x]['partsAvailability'][model]['messageTypes']['compact']['storePickupProductTitle']
-            productList = product.split()
-            message = storeList[x]['storeName'] + ': ' + productList[4] + ' ' + productList[3] + ', ' + storeList[x]['partsAvailability'][model]['pickupSearchQuote']
-            payload = { "msgtype": "text","text": {"content": message},  "at": {"isAtAll": 0} }
-            requests.post(url=dingtalkUrl + token, data=json.dumps(payload), headers=headers)
-            print(message)
+    getStock = json.loads(requests.get(
+        url + '?searchNearby=true&pl=true&mts.0=regular&mts.1=compact&parts.0=' + model + '&store=' + storeCode,
+        headers=headers).content)
+    try:
+        storeList = getStock['body']['content']['pickupMessage']['stores']
+    except KeyError as e:
+        print("json parse failed, maybe got http 50x/403")
+        return False
+    else:
+        for x in range(len(storeList)):
+            status = storeList[x]['partsAvailability'][model]['pickupDisplay']
+            if status == 'available':
+#                global flag
+#                flag = 0
+                product = storeList[x]['partsAvailability'][model]['messageTypes']['compact']['storePickupProductTitle']
+                productList = product.split()
+                message = storeList[x]['storeName'] + ': ' + productList[4] + ' ' + productList[3] + ', ' + storeList[x]['partsAvailability'][model]['pickupSearchQuote']
+                payload = { "msgtype": "text","text": {"content": message},  "at": {"isAtAll": 0} }
+                requests.post(url=dingtalkUrl + token, data=json.dumps(payload), headers=headers)
+                print(message)
 
 async def main():
     while flag:
