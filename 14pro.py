@@ -24,9 +24,7 @@ flag = 1
 
 # get status
 async def get_status():
-    getStock = json.loads(requests.get(
-        url + '?searchNearby=true&pl=true&mts.0=regular&mts.1=compact&parts.0=' + model + '&store=' + storeCode,
-        headers=headers).content)
+    getStock = json.loads(requests.get(url + '?searchNearby=true&pl=true&mts.0=regular&mts.1=compact&parts.0=' + model + '&store=' + storeCode, headers=headers).content)
     try:
         storeList = getStock['body']['content']['pickupMessage']['stores']
     except KeyError as e:
